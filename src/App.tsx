@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import { SignatureComponent, Signature } from '@syncfusion/ej2-react-inputs';
+import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import './App.css';
 
 function App() {
+
+  let signObj: Signature | null;
+
+  const OnSave=()=>{
+    signObj?.save();
+  }
+
+  const OnClear=()=>{
+    signObj?.clear();
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div id="actionBtn">
+        <ButtonComponent onClick={OnSave}>Save</ButtonComponent>
+        <ButtonComponent onClick={OnClear}>Clear</ButtonComponent>
+      </div>
+      <SignatureComponent ref={sign => signObj = sign}
+        backgroundColor='red'
+        strokeColor='white'
+        velocity={1}
+        minStrokeWidth={2}
+        maxStrokeWidth={5}
         >
-          Learn React
-        </a>
-      </header>
+
+      </SignatureComponent>
+
     </div>
   );
 }
 
 export default App;
+
+// backgroundImage="https://www.syncfusion.com/blogs/wp-content/uploads/2019/11/blog_1x.jpg"
