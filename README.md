@@ -1,1 +1,1 @@
-##React signature pad in React - Typescript##
+React signature pad in React - Typescript
